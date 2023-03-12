@@ -1,7 +1,7 @@
 name: TestNuget
 on: workflow_dispatch
 jobs:
-  GoTest:
+  PackAndRelease:
     runs-on: windows-latest
     steps:
       - name: Get repo code
@@ -10,5 +10,15 @@ jobs:
         run: dotnet pack PowerCollections --configuration Release
       - name: nugetPublish
         run: dotnet nuget push PowerCollections\bin\Release\*.nupkg --source https://nuget.pkg.github.com/OblivionSorcerer/index.json --api-key ${{ secrets.API_KEY_GIT }}
-
+      - name: GetVersion
+        id: getxml
+        uses: mavrosxristoforos/get-xml-info@1.0
+        with:
+          xml-file: 'PowerCollections/PowerCollections.csproj'
+          xpath: '//VersionPrefix'
+      - name: Create Release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: 'PowerCollections\bin\Release\*.nupkg'
+          tag: ${{ steps.getxml.outputs.info }}
         

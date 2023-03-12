@@ -1,16 +1,16 @@
 name: TestTestov
-on: push
+on: workflow_dispatch
 jobs:
   GoTest:
     runs-on: windows-latest
     steps:
       - name: Get repo code
         uses: actions/checkout@v3
-      - name: .NET Restore
-        uses: zyactions/dotnet-restore@v1
-        with:
-          workspace: PowerCollections/PowerCollections.csproj
+      - name: Restore
+        run: dotnet restore PowerCollections/PowerCollections.csproj 
       - name: Build
-        run: dotnet build PowerCollections/PowerCollections.csproj --no-restore
+        run: dotnet build PowerCollections/PowerCollections.csproj
+      - name: Restore Tests
+        run: dotnet restore PowerCollections.Tests/PowerCollections.Tests.csproj
       - name: Test
-        run: dotnet test PowerCollections.Tests/PowerCollections.Tests.csproj --no-restore
+        run: dotnet test PowerCollections.Tests/PowerCollections.Tests.csproj

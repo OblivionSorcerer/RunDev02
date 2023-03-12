@@ -22,6 +22,6 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           artifacts: 'PowerCollections\bin\Release\*.nupkg'
-          tag: ${{ steps.getxml.outputs.info }}
+          tag: v${{ steps.getxml.outputs.info }}
           token: ${{ secrets.API_KEY_GIT }}
         

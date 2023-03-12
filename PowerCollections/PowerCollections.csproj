@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<PackageId>OblivionSorcerer.PowerCollections</PackageId>
+		<Authors>OblivionSorcerer</Authors>
+		<VersionPrefix>0.0.3</VersionPrefix>
+		<VersionSuffix>beta</VersionSuffix>
+		<Deterministic>false</Deterministic>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<RepositoryType>git</RepositoryType>
+		<Copyright>Copyright 2023 (c)</Copyright>
+		<PackageProjectUrl>https://github.com/OblivionSorcerer/DevTools_lab02.git</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/OblivionSorcerer/DevTools_lab02.git</RepositoryUrl>
+	</PropertyGroup>
+
+</Project>

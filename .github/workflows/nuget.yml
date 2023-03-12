@@ -1,0 +1,14 @@
+name: TestNuget
+on: workflow_dispatch
+jobs:
+  GoTest:
+    runs-on: windows-latest
+    steps:
+      - name: Get repo code
+        uses: actions/checkout@v3
+      - name: nugetPack
+        run: dotnet pack PowerCollections --configuration Release
+      - name: nugetPublish
+        run: dotnet nuget push PowerCollections\bin\Release\*.nupkg --source https://nuget.pkg.github.com/OblivionSorcerer/index.json --api-key ${{ secrets.API_KEY_GIT }}
+
+        

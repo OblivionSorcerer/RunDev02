@@ -1,0 +1,16 @@
+name: TestTestov
+on: push
+jobs:
+  GoTest:
+    runs-on: windows-latest
+    steps:
+      - name: Get repo code
+        uses: actions/checkout@v3
+      - name: .NET Restore
+        uses: zyactions/dotnet-restore@v1
+        with:
+          workspace: PowerCollections/PowerCollections.csproj
+      - name: Build
+        run: dotnet build PowerCollections/PowerCollections.csproj --no-restore
+      - name: Test
+        run: dotnet test PowerCollections.Tests/PowerCollections.Tests.csproj --no-restore

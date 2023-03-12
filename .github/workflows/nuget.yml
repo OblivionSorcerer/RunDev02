@@ -10,7 +10,8 @@ jobs:
         uses: actions/checkout@v3
       - name: nugetPack
         run: dotnet pack PowerCollections --configuration Release
-
+      - name: nugetPublish
+        run: dotnet nuget push PowerCollections\bin\Release\*.nupkg --source https://nuget.pkg.github.com/OblivionSorcerer/index.json --api-key ${{ secrets.API_KEY_GIT }}
       - name: GetVersion
         id: getxml
         uses: mavrosxristoforos/get-xml-info@1.0

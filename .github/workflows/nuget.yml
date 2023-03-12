@@ -21,4 +21,5 @@ jobs:
         with:
           artifacts: 'PowerCollections\bin\Release\*.nupkg'
           tag: ${{ steps.getxml.outputs.info }}
+          token: ${{ secrets.API_KEY_GIT }}
         

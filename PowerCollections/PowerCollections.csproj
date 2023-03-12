@@ -5,7 +5,7 @@
 		<TargetFramework>net6.0</TargetFramework>
 		<PackageId>OblivionSorcerer.PowerCollections</PackageId>
 		<Authors>OblivionSorcerer</Authors>
-		<VersionPrefix>0.0.7</VersionPrefix>
+		<VersionPrefix>0.0.8</VersionPrefix>
 		<VersionSuffix>beta</VersionSuffix>
 		<Deterministic>false</Deterministic>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
